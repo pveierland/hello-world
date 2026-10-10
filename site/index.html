@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello world</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0b1440, #1b0f4a 45%, #04303f);
+    }
+
+    .sky {
+      position: fixed;
+      inset: -20%;
+      filter: blur(70px) saturate(140%);
+    }
+
+    .cloud {
+      position: absolute;
+      width: 55vmax;
+      height: 40vmax;
+      border-radius: 50%;
+      opacity: 0.75;
+      mix-blend-mode: screen;
+      animation: drift 28s ease-in-out infinite alternate;
+    }
+
+    .cloud:nth-child(1) { background: #00e5ff; top: 0%;  left: -5%; animation-duration: 31s; }
+    .cloud:nth-child(2) { background: #ff4fd8; top: 10%; left: 45%; animation-duration: 37s; animation-delay: -8s; }
+    .cloud:nth-child(3) { background: #7cff9b; top: 50%; left: 5%;  animation-duration: 43s; animation-delay: -15s; }
+    .cloud:nth-child(4) { background: #8a7dff; top: 55%; left: 50%; animation-duration: 35s; animation-delay: -4s; }
+    .cloud:nth-child(5) { background: #ffd36e; top: 30%; left: 25%; animation-duration: 47s; animation-delay: -20s; opacity: 0.5; }
+    .cloud:nth-child(6) { background: #36b3ff; top: 75%; left: 75%; animation-duration: 39s; animation-delay: -11s; }
+
+    @keyframes drift {
+      0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+      50%  { transform: translate(12vw, -8vh) scale(1.25) rotate(25deg); }
+      100% { transform: translate(-10vw, 10vh) scale(0.9) rotate(-15deg); }
+    }
+
+    h1 {
+      position: fixed;
+      inset: 0;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      font: 300 clamp(3rem, 13vw, 12rem)/1 system-ui, sans-serif;
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 80px rgba(120, 220, 255, 0.6);
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      50% { opacity: 0.85; transform: scale(1.03); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cloud, h1 { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+  <h1>Hello world</h1>
+</body>
+</html>
